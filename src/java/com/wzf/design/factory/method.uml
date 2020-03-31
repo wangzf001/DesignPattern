@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.wzf.design.factory.ab.Demo</OriginalElement>
+  <nodes>
+    <node x="208.0" y="111.0">com.wzf.design.factory.ab.PythonCourseFactory</node>
+    <node x="94.5" y="217.0">com.wzf.design.factory.ab.ICourse</node>
+    <node x="107.75" y="0.0">com.wzf.design.factory.ab.ICourseFactory</node>
+    <node x="189.0" y="328.0">com.wzf.design.factory.ab.PythonCourse</node>
+    <node x="0.0" y="328.0">com.wzf.design.factory.ab.JavaCourse</node>
+    <node x="0.0" y="111.0">com.wzf.design.factory.ab.JavaCourseFactory</node>
+    <node x="0.0" y="434.0">com.wzf.design.factory.ab.Demo</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.wzf.design.factory.ab.PythonCourse" target="com.wzf.design.factory.ab.ICourse">
+      <point x="0.0" y="-30.5" />
+      <point x="273.5" y="303.0" />
+      <point x="221.25" y="303.0" />
+      <point x="42.25" y="30.5" />
+    </edge>
+    <edge source="com.wzf.design.factory.ab.JavaCourseFactory" target="com.wzf.design.factory.ab.ICourseFactory">
+      <point x="0.0" y="-30.5" />
+      <point x="94.0" y="86.0" />
+      <point x="154.75" y="86.0" />
+      <point x="-47.0" y="30.5" />
+    </edge>
+    <edge source="com.wzf.design.factory.ab.PythonCourseFactory" target="com.wzf.design.factory.ab.ICourseFactory">
+      <point x="0.0" y="-30.5" />
+      <point x="309.5" y="86.0" />
+      <point x="248.75" y="86.0" />
+      <point x="47.0" y="30.5" />
+    </edge>
+    <edge source="com.wzf.design.factory.ab.JavaCourse" target="com.wzf.design.factory.ab.ICourse">
+      <point x="0.0" y="-30.5" />
+      <point x="84.5" y="303.0" />
+      <point x="136.75" y="303.0" />
+      <point x="-42.25" y="30.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="203.5" y="210.5" />
+  <SelectedNodes>
+    <node>com.wzf.design.factory.ab.Demo</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
