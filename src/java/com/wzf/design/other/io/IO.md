@@ -1,4 +1,5 @@
 IO
+输出流有flush()方法，先flush(),后close()
 
 字节流 InputStream  OutputStream
 
@@ -12,9 +13,9 @@ IO
 
 缓冲流 BufferedReader BufferedWriter   BufferedInputStream   BufferedOutputStream
 
-输入流 System.in  从标准输入设备输入内容：键盘；
+标准输入流 System.in  从标准输入设备输入内容：键盘；
 
-输出流 System.out  往标准输出设备输出，显示器；
+标准输出流 System.out  往标准输出设备输出，显示器；
 
 标准错误输出流：System.err
 
@@ -23,20 +24,30 @@ IO
 
 
 ```
+输入流、输出流是对于内存而言；
+
+IO的关闭：
+先关外层，再关内层；只关处理流，不关节点流，。如BufferedInputStream包装了一个FileInputStream，那么先
+关BufferedInputStream，再关FileInputStream。但要注意的是由于一般处理流持有节点流引用，处理流都会在自己的close方法中去关闭节点流，因此我们只要关闭外层的处理流即可，如果多此一举的关闭节点流反而会报错。如BufferedInputStream包装了FileInputStream，我们只要关闭BufferedInputStream即可
+
+
+
 InputStream
     is.read(): 返回的是字符代表的整数值；读到文件结尾（没有内容可读了），返回-1;
-	is.read(b); 每次读进一个byte数组；
+    is.read(b); 每次读进一个byte数组，若最后一次不满数组长度，则读取n个字节，n之后为上次内容；数组一般长度为512或1024
+    is.read(b,off,len); 每次读byte数组指定长度；
     is.available():
     //结合StringBuilder,将字节拼成一个字符串
     //StringBuffer是线程安全的因为方法都加了synchronized修饰，而StringBuilder则没有实现线程安全功能，所以性能略高。
         StringBuilder sBuilder=new StringBuilder();
-        	String str=new String(b);//String的一个构造方法；
-        	sBuilder.append(str);
-        }
+        String str=new String(b);//String的一个构造方法；
+        sBuilder.append(str);
+        
         
 OutputStream
     os.write(int b); 一个字节一个字节地写；
     os.write(b);
+    os.write(b,off,len);
 	OutputStream(抽象类) os=new FileOutputStream(file，true)（子类）；true：表示追加，不是覆盖；
     
 字符流 InputStreamReader 
@@ -93,7 +104,7 @@ OutputStream
         //pw.write(str);
 
 --------------------------
-    1.节点流：
+1.节点流：
 
 InputStream is=new FileInputStream(file);
 OutputStream os=new FileOutputStream（file);

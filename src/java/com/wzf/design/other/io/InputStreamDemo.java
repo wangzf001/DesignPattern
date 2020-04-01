@@ -47,7 +47,8 @@ public class InputStreamDemo {
             */
 
            /*
-            //5，结合StringBuilder
+            //5，结合StringBuilder，发现问题：当最后一次不满时，则0 ~ len-1读取，len之后的内容是上次的bytes数据。
+            // 官方解释：将读取的第一个字节存储在元素 b[0] 中，下一个存储在 b[1] 中，依次类推。读取的字节数最多等于 b 的长度。设 k 为实际读取的字节数；这些字节将存储在 b[0] 到 b[k-1] 的元素中，不影响 b[k] 到 b[b.length-1] 的元素。
             byte[] bytes = new byte[8];
             StringBuilder sb = new StringBuilder();
             while ((len = is.read(bytes)) != -1){
@@ -59,8 +60,18 @@ public class InputStreamDemo {
             System.out.println("长度end:"+len);
             System.out.println(sb);
             */
-            is.close();
 
+            //6，结合StringBuilder，解决问题。
+            byte[] bytes = new byte[8];
+            StringBuilder sb = new StringBuilder();
+            while ((len = is.read(bytes)) != -1){
+                String str = new String(bytes);
+                str = str.substring(0,len);
+                sb.append(str);
+            }
+            System.out.println(sb);
+
+            is.close();
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
