@@ -113,6 +113,7 @@ Reader reader=new FileReader(file);
 Writer writer=new FileWriter(file);
 
 2.处理流：以节点流为参数，处理的是节点流：增强功能，简化操作；
+缓冲流、转换流；
 
 InputStream is=new FileInputStream(file);
 OutputStream os=new FileOutputStream（file);

@@ -18,6 +18,7 @@ public class Demo {
             qiTianDaSheng.setJinGuBang(new JinGuBang());
             qiTianDaSheng.setBirth(new Date());
 
+            //深克隆
             QiTianDaSheng clone = (QiTianDaSheng) qiTianDaSheng.clone();
             System.out.println(clone);
             System.out.println(qiTianDaSheng);
