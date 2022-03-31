@@ -22,7 +22,7 @@
     </build>
 
     <properties>
-        <spring-verison>4.3.10.RELEASE</spring-verison>
+        <spring-verison>5.3.18</spring-verison>
     </properties>
 
     <dependencies>
